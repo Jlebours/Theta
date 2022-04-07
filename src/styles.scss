@@ -1,0 +1,21 @@
+html {
+  font-size: 1rem;
+  height: 100%
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--surface-b);
+  color: var(--texte-color);
+  padding: 0;
+  margin: 0;
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/primeng.min.css";
+@import "primeng/resources/themes/lara-dark-purple/theme.css";
+@import "primeflex/primeflex.scss";
+@import "primeicons/primeicons.css";
