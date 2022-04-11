@@ -1,0 +1,21 @@
+<div class="surface-ground lg:ml-5">
+  <div class="grid">
+    <div class="col-12 lg:col-4 p-3" *ngFor="let instance of instances">
+      <div class="p-3 border-round shadow-2 flex align-items-center surface-card">
+        <div style="width:48px;height:48px;border-radius:10px"
+          class="bg-teal-100 inline-flex align-items-center justify-content-center mr-3">
+          <i class="pi pi-file text-teal-600 text-3xl"></i>
+        </div>
+        <div>
+          <span class="text-900 text-xl font-medium mb-2">{{instance.name}}</span>
+          <p class="mt-1 mb-0 text-600 font-medium text-sm">Proin libero nunc</p>
+        </div>
+        <div class="ml-auto">
+          <button pButton pRipple icon="pi pi-ellipsis-v" class="p-button-text p-button-plain p-button-rounded"
+            (click)="menu1.toggle($event)"></button>
+          <p-menu #menu1 [popup]="true" [model]="items"></p-menu>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
