@@ -1,141 +1,166 @@
+
+
 <div class="min-h-screen flex flex-column surface-ground">
+  <div class="surface-overlay py-2 px-6 flex align-items-center justify-content-between relative lg:static">
+      <a pRipple class="cursor-pointer block lg:hidden text-700" pStyleClass="#app-sidebar-12" enterClass="hidden" enterActiveClass="fadeinleft" leaveToClass="hidden" leaveActiveClass="fadeoutleft" [hideOnOutsideClick]="true">
+          <i class="pi pi-bars text-4xl"></i>
+      </a>
+      <img src="assets/images/theta.svg" alt="Image" height="40" class="mr-0 lg:mr-6">
+      <a pRipple class="cursor-pointer block lg:hidden text-700" pStyleClass="@next" enterClass="hidden" leaveToClass="hidden" [hideOnOutsideClick]="true">
+          <i class="pi pi-ellipsis-v text-2xl"></i>
+      </a>
+      <ul class="list-none p-3 lg:p-0 m-0 lg:align-items-center select-none flex-column lg:flex-row absolute hidden lg:flex lg:static surface-overlay right-0 top-100 z-1 shadow-2 lg:shadow-none">
+          <li class="border-top-1 surface-border lg:border-top-none lg:mt-0 mt-2 lg:pt-0 pt-2">
+              <a pRipple class="flex p-2 align-items-center hover:surface-100 font-medium border-round cursor-pointer transition-colors transition-duration-150 lg:border-circle">
+                <p-avatar icon="pi pi-user" [style]="{'background-color': 'rgb(168, 85, 247)', 'color': '#ffffff'}" shape="circle"></p-avatar>
+              </a>
+          </li>
+      </ul>
+  </div>
   <div class="flex relative lg:static p-5 flex-auto">
-    <div id="app-sidebar-12"
-      class="surface-card hidden lg:block flex-shrink-0 absolute lg:static left-0 top-0 z-1 select-none shadow-2"
-      style="width:280px;border-radius: 12px">
-      <div class="pt-3 flex align-items-center justify-content-center">
-        <img src="assets/images/theta.png" alt="Image" height="48">
-      </div>
-      <div class="flex flex-column h-full">
-        <div class="overflow-y-auto">
-          <div class="p-3">
-            <div class="p-input-icon-left w-full">
-              <i class="pi pi-search"></i>
-              <input type="text" pInputText class="border-1 surface-border w-full" placeholder="Search"
-                style="border-radius: 30px">
-            </div>
-          </div>
-          <ul class="list-none px-3 pb-3 pt-0 m-0">
-            <li>
-              <div class="p-3 flex align-items-center justify-content-between text-600">
-                <span class="font-medium text-sm text-900">Virtual machines</span>
+      <div id="app-sidebar-12" class="surface-card hidden lg:block flex-shrink-0 absolute lg:static left-0 top-0 z-1 select-none shadow-2" style="width:280px;border-radius:12px;margin-right:35px;">
+          <div class="flex flex-column h-full">
+              <div class="overflow-y-auto">
+                  <div class="p-3">
+                      <div class="p-input-icon-left w-full">
+                          <i class="pi pi-search"></i>
+                          <input type="text" pInputText class="border-1 surface-border w-full" placeholder="Search" style="border-radius: 30px">
+                      </div>
+                  </div>
+                  <ul class="list-none px-3 pb-3 pt-0 m-0">
+                    <li>
+                      <a pRipple
+                        class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                        routerLink="/dashboard" routerLinkActive="text-purple-500">
+                        <i class="pi pi-home mr-2"></i>
+                        <span class="font-medium">Dashboard</span>
+                      </a>
+                    </li>
+                  </ul>
+                  <ul class="list-none px-3 pb-3 pt-0 m-0">
+                    <li>
+                      <div class="p-3 flex align-items-center justify-content-between text-600">
+                        <span class="font-medium text-sm text-900">Virtual machines</span>
+                      </div>
+                      <ul class="list-none p-0 m-0 overflow-hidden">
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
+                            pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
+                            leaveActiveClass="slideup">
+                            <i class="pi pi-sort-alt mr-2"></i>
+                            <span class="font-medium">Telegraf</span>
+                            <i class="pi pi-chevron-down ml-auto"></i>
+                          </a>
+                          <ul
+                            class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
+                            <li class="border-left-2 surface-border">
+                              <a pRipple
+                                class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                                routerLink="/list-instances" routerLinkActive="text-purple-500">
+                                <i class="pi pi-copy mr-2"></i>
+                                <span class="font-medium">Instances</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
+                            pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
+                            leaveActiveClass="slideup">
+                            <i class="pi pi-database mr-2"></i>
+                            <span class="font-medium">InfluxDB Hot</span>
+                            <i class="pi pi-chevron-down ml-auto"></i>
+                          </a>
+                          <ul
+                            class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
+                            <li class="border-left-2 surface-border">
+                              <a pRipple
+                                class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors">
+                                <i class="pi pi-database mr-2"></i>
+                                <span class="font-medium">Databases</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
+                            pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
+                            leaveActiveClass="slideup">
+                            <i class="pi pi-database mr-2"></i>
+                            <span class="font-medium">InfluxDB Cold</span>
+                            <i class="pi pi-chevron-down ml-auto"></i>
+                          </a>
+                          <ul
+                            class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
+                            <li class="border-left-2 surface-border">
+                              <a pRipple
+                                class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors">
+                                <i class="pi pi-database mr-2"></i>
+                                <span class="font-medium">Databases</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
+                            pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
+                            leaveActiveClass="slideup">
+                            <i class="pi pi-inbox mr-2"></i>
+                            <span class="font-medium">Kapacitor</span>
+                            <i class="pi pi-chevron-down ml-auto"></i>
+                          </a>
+                          <ul
+                            class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
+                            <li class="border-left-2 surface-border">
+                              <a pRipple
+                                class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors">
+                                <i class="pi pi-chart-line mr-2"></i>
+                                <span class="font-medium">Processes</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
               </div>
-              <ul class="list-none p-0 m-0 overflow-hidden">
-                <li>
-                  <a pRipple
-                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
-                    pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
-                    leaveActiveClass="slideup">
-                    <i class="pi pi-chart-line mr-2"></i>
-                    <span class="font-medium">Telegraf</span>
-                    <i class="pi pi-chevron-down ml-auto"></i>
+              <div class="mt-auto border-top-1 surface-border p-3 flex justify-content-between">
+                  <a pRipple class="cursor-pointer inline-flex align-items-center justify-content-center border-2 surface-border hover:surface-100 text-600 transition-colors transition-duration-150 border-circle" style="width:40px;height:40px">
+                      <i class="pi pi-cog text-xl"></i>
                   </a>
-                  <ul
-                    class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                    <li class="border-left-2 surface-border">
-                      <a pRipple
-                        class="flex align-items-center cursor-pointer p-3 border-round text-purple-500 hover:surface-100 transition-duration-150 transition-colors">
-                        <i class="pi pi-chart-line mr-2"></i>
-                        <span class="font-medium">Instances</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a pRipple
-                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
-                    pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
-                    leaveActiveClass="slideup">
-                    <i class="pi pi-chart-line mr-2"></i>
-                    <span class="font-medium">InfluxDB Hot</span>
-                    <i class="pi pi-chevron-down ml-auto"></i>
+                  <a pRipple class="cursor-pointer inline-flex align-items-center justify-content-center surface-border hover:surface-100 text-pink-600 border-2 hover:bg-red-600 text-600 transition-colors transition-duration-150 border-circle" style="width:40px;height:40px">
+                      <i class="pi pi-sign-out text-xl"></i>
                   </a>
-                  <ul
-                    class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                    <li class="border-left-2 surface-border">
-                      <a pRipple
-                        class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors">
-                        <i class="pi pi-chart-line mr-2"></i>
-                        <span class="font-medium">Databases</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a pRipple
-                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
-                    pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
-                    leaveActiveClass="slideup">
-                    <i class="pi pi-chart-line mr-2"></i>
-                    <span class="font-medium">InfluxDB Cold</span>
-                    <i class="pi pi-chevron-down ml-auto"></i>
-                  </a>
-                  <ul
-                    class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                    <li class="border-left-2 surface-border">
-                      <a pRipple
-                        class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors">
-                        <i class="pi pi-chart-line mr-2"></i>
-                        <span class="font-medium">Databases</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <a pRipple
-                    class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
-                    pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
-                    leaveActiveClass="slideup">
-                    <i class="pi pi-chart-line mr-2"></i>
-                    <span class="font-medium">Kapacitor</span>
-                    <i class="pi pi-chevron-down ml-auto"></i>
-                  </a>
-                  <ul
-                    class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                    <li class="border-left-2 surface-border">
-                      <a pRipple
-                        class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors">
-                        <i class="pi pi-chart-line mr-2"></i>
-                        <span class="font-medium">Instances</span>
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
+              </div>
+          </div>
+      </div>
+      <div class="flex flex-column flex-auto">
+        <div class="mb-3">
+          <ul class="list-none py-3 px-5 m-0 surface-section flex align-items-center font-medium overflow-x-auto surface-card shadow-2 border-round">
+            <li class="pr-3">
+              <a class="cursor-pointer" routerLink="dashboard">
+                <i class="pi pi-home text-700" routerLinkActive="text-purple-500"></i>
+              </a>
+            </li>
+            <li class="px-2">
+              <i class="pi pi-angle-right text-700"></i>
+            </li>
+            <li class="px-2">
+              <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="telegraf" routerLinkActive="text-purple-500">Telegraf</a>
+            </li>
+            <li class="px-2">
+              <i class="pi pi-angle-right text-700"></i>
+            </li>
+            <li class="px-2">
+              <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="list-instances" routerLinkActive="text-purple-500">Instances</a>
             </li>
           </ul>
         </div>
+        <router-outlet></router-outlet>
       </div>
-    </div>
-    <div class="flex flex-column flex-auto">
-      <div class="lg:ml-5">
-        <ul class="list-none py-3 px-5 m-0 surface-section flex align-items-center font-medium overflow-x-auto">
-          <li class="pr-3">
-            <a class="cursor-pointer">
-              <i class="pi pi-home text-600"></i>
-            </a>
-          </li>
-          <li class="px-2">
-            <i class="pi pi-angle-right text-600"></i>
-          </li>
-          <li class="px-2">
-            <a class="cursor-pointer text-600 white-space-nowrap">Virtual machines</a>
-          </li>
-          <li class="px-2">
-            <i class="pi pi-angle-right text-600"></i>
-          </li>
-          <li class="px-2">
-            <a class="cursor-pointer text-600 white-space-nowrap">Telegraf</a>
-          </li>
-          <li class="px-2">
-            <i class="pi pi-angle-right text-600"></i>
-          </li>
-          <li class="px-2">
-            <a class="cursor-pointer text-purple-500 white-space-nowrap">Instances</a>
-          </li>
-        </ul>
-      </div>
-      <app-list-instances></app-list-instances>
-    </div>
   </div>
 </div>

@@ -12,11 +12,22 @@ import { RippleModule } from 'primeng/ripple';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
+import { AvatarModule } from 'primeng/avatar';
+
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListInstancesComponent } from './components/list-instances/list-instances.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TelegrafComponent } from './components/telegraf/telegraf.component';
+
 
 @NgModule({
-  declarations: [AppComponent, SidebarLayoutComponent, ListInstancesComponent],
+  declarations: [
+    AppComponent,
+    SidebarLayoutComponent,
+    ListInstancesComponent,
+    DashboardComponent,
+    TelegrafComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -29,8 +40,11 @@ import { ListInstancesComponent } from './components/list-instances/list-instanc
     InputTextModule,
     ButtonModule,
     MenuModule,
+    AvatarModule
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [
+    AppComponent
+  ],
 })
 export class AppModule {}

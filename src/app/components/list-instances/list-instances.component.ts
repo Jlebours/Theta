@@ -17,11 +17,11 @@ export class ListInstancesComponent implements OnInit {
 
   ngOnInit() {
     this.thetaService.getInstances().subscribe((data) => {
-      data.forEach((e: any, index: string) => {
+      data.forEach((e: any) => {
         console.log(
           e.name
         )
-        var inst = new Instance(index, e.name)
+        var inst = new Instance(e.pid, e.name, e.state)
         this.instances.push(inst);
         console.log(inst)
       });

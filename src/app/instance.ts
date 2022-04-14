@@ -1,3 +1,3 @@
 export class Instance {
-  constructor(public id: string, public name: string){}
+  constructor(public pid: string, public name: string, public state: string){}
 }
