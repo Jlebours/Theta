@@ -3,18 +3,20 @@ import { MenuItem } from 'primeng/api';
 import { Service } from '../../service';
 import { ThetaAPIService } from '../../services/theta-api.service';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-list-services',
   templateUrl: './list-services.component.html',
   styleUrls: ['./list-services.component.scss'],
+  providers: [MessageService]
 })
 
 export class ListServicesComponent implements OnInit {
   items: MenuItem[] = [];
   services: Service[] = [];
 
-  constructor(private router: Router, private thetaService: ThetaAPIService) {}
+  constructor(private router: Router, private thetaService: ThetaAPIService, private messageService: MessageService) {}
 
   ngOnInit() {
     // refresh le composant précédent
@@ -36,6 +38,9 @@ export class ListServicesComponent implements OnInit {
   startService(name: string): void {
     this.thetaService.startService(name).subscribe((data) => {
       console.log("Service started")
+      if (data[0].message == "Success") {
+        this.messageService.add({severity:'success', summary:'Success', detail:'Your service started'});
+      }
     })
   }
 

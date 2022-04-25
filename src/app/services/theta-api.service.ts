@@ -13,14 +13,17 @@ export class ThetaAPIService {
   }
 
   startService(name: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/service/start/${name}`);
+    //return this.http.get(`http://localhost:3000/service/start/${name}`);
+    return this.http.get(`http://localhost:3000/start?name=${name}`);
   }
 
   stopService(name: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/service/stop/${name}`);
+    //return this.http.get(`http://localhost:3000/service/stop/${name}`);
+    return this.http.get(`http://localhost:3000/stop/${name}`);
   }
 
   restartService(name: string): Observable<any> {
-    return this.http.get(`http://localhost:3000/service/restart/${name}`);
+    //return this.http.get(`http://localhost:3000/service/restart/${name}`);
+    return this.http.get(`http://localhost:3000/restart/${name}`);
   }
 }

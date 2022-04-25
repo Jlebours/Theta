@@ -15,6 +15,7 @@ import { MenuModule } from 'primeng/menu';
 import { AvatarModule } from 'primeng/avatar';
 import { TagModule } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
+import { ToastModule } from 'primeng/toast';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
@@ -44,7 +45,8 @@ import { TelegrafComponent } from './components/telegraf/telegraf.component';
     MenuModule,
     AvatarModule,
     TagModule,
-    ChartModule
+    ChartModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [
