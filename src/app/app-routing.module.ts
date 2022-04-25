@@ -6,9 +6,20 @@ import { TelegrafComponent } from './components/telegraf/telegraf.component';
 
 
 const routes: Routes = [
-  { path: "dashboard", component: DashboardComponent },
-  { path:'telegraf', component: TelegrafComponent },
-  { path: "list-instances", component: ListInstancesComponent },
+  { path: "dashboard",
+    component: DashboardComponent,
+    children: [
+    {
+      path: 'telegraf',
+      component: TelegrafComponent,
+      children: [
+        {
+          path: 'instances',
+          component: ListInstancesComponent,
+        }
+      ]},
+  ]},
+  //{ path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
 ];
 
 @NgModule({

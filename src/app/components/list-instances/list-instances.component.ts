@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Instance } from '../../instance';
-import { ThetaAPIService } from '../../theta-api.service';
+import { ThetaAPIService } from '../../services/theta-api.service';
 
 @Component({
   selector: 'app-list-instances',
@@ -29,8 +29,7 @@ export class ListInstancesComponent implements OnInit {
 
     this.items = [
       { label: 'New', icon: 'pi pi-fw pi-plus' },
-      { label: 'Open', icon: 'pi pi-fw pi-download' },
-      { label: 'Undo', icon: 'pi pi-fw pi-refresh' },
+      { label: 'Remove', icon: 'pi pi-fw pi-minus' }
     ];
   }
 }

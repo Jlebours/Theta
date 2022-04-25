@@ -1,2 +1,0 @@
-ligne1.conf
-ligne2.conf

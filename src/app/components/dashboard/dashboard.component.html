@@ -1,90 +1,126 @@
-<div class="surface-section py-3 md:px-4">
-  <div class="flex md:align-items-center md:justify-content-between flex-column md:flex-row pb-4 border-bottom-1 surface-border">
-      <div class="flex align-items-center">
-          <i class="pi pi-server text-2xl mr-3 text-500"></i>
-          <span class="text-3xl font-medium text-900">Virtual machines</span>
-      </div>
-  </div>
+
+<div class="surface-section px-0 py-5 md:px-6 lg:px-8">
+    <div class="text-3xl font-medium text-900 flex align-items-center">Virtual Machines</div>
 </div>
-<div class="surface-ground">
+<ul class="list-none p-0 m-0 flex flex-column md:flex-row">
+  <li class="relative mr-0 md:mr-8 flex-auto">
+      <div class="border-1 surface-border surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1 align-items-center justify-content-center">
+        <div class="mr-3">
+          <div class="border-1 border-200 surface-50 flex align-items-center justify-content-center border-round mx-auto" style="width:90px; height:90px">
+              <img src="assets/images/TelegrafTiger.png" style="height: 48px" />
+          </div>
+        </div>
+        <div>
+          <span class="text-900 font-medium">Telegraf</span>
+          <div class="text-600 text-sm mt-2">Status :
+            <span class="text-green-500 font-medium">UP</span>
+          </div>
+          <p-button label="Show" icon="pi pi-search" styleClass="p-button-sm p-button-help p-button-rounded h-2rem mt-2" routerLink="telegraf"></p-button>
+        </div>
+      </div>
+      <div class="w-full absolute top-50 left-100 surface-300 hidden md:block" style="transform: translateY(-50%); height: 2px"></div>
+  </li>
+  <li class="relative mr-0 md:mr-8 flex-auto">
+      <div class="border-1 surface-border surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1 align-items-center justify-content-center">
+        <div class="mr-3">
+          <div class="border-1 border-200 surface-50 flex align-items-center justify-content-center border-round mx-auto" style="width:90px; height:90px">
+
+          </div>
+        </div>
+        <div>
+          <span class="text-900 font-medium">InfluxDB Hot</span>
+          <div class="text-600 text-sm mt-2">Status :
+            <span class="text-green-500 font-medium">UP</span>
+          </div>
+        </div>
+      </div>
+      <div class="w-full absolute top-50 left-100 surface-300 hidden md:block" style="transform: translateY(-50%); height: 2px"></div>
+  </li>
+  <li class="relative mr-0 md:mr-8 flex-auto">
+    <div class="border-1 surface-border surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1 align-items-center justify-content-center">
+      <div class="mr-3">
+        <div class="border-1 border-200 surface-50 flex align-items-center justify-content-center border-round mx-auto" style="width:90px; height:90px">
+
+        </div>
+      </div>
+      <div>
+        <span class="text-900 font-medium">InfluxDB Hot</span>
+        <div class="text-600 text-sm mt-2">Status :
+          <span class="text-green-500 font-medium">UP</span>
+        </div>
+      </div>
+    </div>
+    <div class="w-full absolute top-50 left-100 surface-300 hidden md:block" style="transform: translateY(-50%); height: 2px"></div>
+  </li>
+  <li class="relative flex-auto">
+    <div class="border-1 surface-border surface-card border-round p-3 flex flex-column md:flex-row align-items-center z-1 align-items-center justify-content-center">
+      <div class="mr-3">
+        <div class="border-1 border-200 surface-50 flex align-items-center justify-content-center border-round mx-auto" style="width:90px; height:90px">
+
+        </div>
+      </div>
+      <div>
+        <span class="text-900 font-medium">InfluxDB Hot</span>
+        <div class="text-600 text-sm mt-2">Status :
+          <span class="text-green-500 font-medium">UP</span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<!--<div class="surface-ground">
   <div class="grid">
     <div class="col-12 lg:col-6 xl:col-3">
-      <div class="surface-card shadow-2 p-3 border-1 border-50 border-round ">
-          <div class="flex justify-content-between mb-3">
-            <div>
-                <div class="text-900 font-medium text-xl">Telegraf</div>
-            </div>
-            <div class="flex align-items-center justify-content-center bg-orange-100 border-round" style="width:2.5rem;height:2.5rem">
-                <i class="pi pi-bolt text-orange-500 text-xl"></i>
-            </div>
+      <div class="surface-card shadow-2 p-3 border-1 surface-border border-round ">
+        <div class="flex mb-3 align-items-center">
+          <div class="flex align-items-center justify-content-center bg-orange-100 border-round mr-3" style="width:2.5rem;height:2.5rem">
+            <i class="pi pi-sort-alt text-orange-500 text-xl"></i>
           </div>
-          <span class="text-500">Status : </span>
-          <span class="text-green-500 font-medium">UP</span>
-        <div class="flex border-bottom-1 surface-border pb-4">
+          <div class="text-900 font-medium text-xl">Telegraf</div>
         </div>
-          <div class="flex justify-content-between pt-4">
-            <button pButton pRipple label="More" icon="pi pi-search" class="p-button-outlined p-button-secondary w-3 ml-auto" routerLink="/telegraf"></button>
-        </div>
+        <span class="text-500">Status : </span>
+        <span class="text-green-500 font-medium">UP</span>
       </div>
     </div>
     <div class="col-12 lg:col-6 xl:col-3">
-        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
-            <div class="flex justify-content-between mb-3">
-                <div>
-                    <!--<span class="block text-500 font-medium mb-3">InfluxDB Hot</span>-->
-                    <div class="text-900 font-medium text-xl">InfluxDB Hot</div>
-                </div>
-                <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
-                    <i class="pi pi-database text-blue-500 text-xl"></i>
-                </div>
-            </div>
-            <span class="text-500">Status : </span>
-            <span class="text-green-500 font-medium">UP</span>
-            <div class="flex border-bottom-1 surface-border pb-4">
-            </div>
-              <div class="flex justify-content-between pt-4">
-                <button pButton pRipple label="More" icon="pi pi-search" class="p-button-outlined p-button-secondary w-3 ml-auto"></button>
-            </div>
+      <div class="surface-card shadow-2 p-3 border-1 surface-border border-round">
+        <div class="flex mb-3 align-items-center">
+          <div class="flex align-items-center justify-content-center bg-blue-100 border-round mr-3" style="width:2.5rem;height:2.5rem">
+            <i class="pi pi-database text-blue-500 text-xl"></i>
+          </div>
+          <div class="text-900 font-medium text-xl">InfluxDB Hot</div>
         </div>
-    </div>
-    <div class="col-12 lg:col-6 xl:col-3">
-      <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
-          <div class="flex justify-content-between mb-3">
-              <div>
-                  <div class="text-900 font-medium text-xl">InfluxDB Cold</div>
-              </div>
-              <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width:2.5rem;height:2.5rem">
-                  <i class="pi pi-database text-blue-500 text-xl"></i>
-              </div>
-          </div>
-          <span class="text-500">Status : </span>
-          <span class="text-green-500 font-medium">UP</span>
-          <div class="flex border-bottom-1 surface-border pb-4">
-          </div>
-            <div class="flex justify-content-between pt-4">
-              <button pButton pRipple label="More" icon="pi pi-search" class="p-button-outlined p-button-secondary w-3 ml-auto"></button>
-          </div>
+        <span class="text-500">Status : </span>
+        <span class="text-green-500 font-medium">UP</span>
       </div>
     </div>
     <div class="col-12 lg:col-6 xl:col-3">
-        <div class="surface-card shadow-2 p-3 border-1 border-50 border-round">
-            <div class="flex justify-content-between mb-3">
-                <div>
-                    <div class="text-900 font-medium text-xl">Kapacitor</div>
-                </div>
-                <div class="flex align-items-center justify-content-center bg-cyan-100 border-round" style="width:2.5rem;height:2.5rem">
-                    <i class="pi pi-inbox text-cyan-500 text-xl"></i>
-                </div>
-            </div>
-            <span class="text-500">Status : </span>
-            <span class="text-green-500 font-medium">UP</span>
-            <div class="flex border-bottom-1 surface-border pb-4">
-            </div>
-              <div class="flex justify-content-between pt-4">
-                <button pButton pRipple label="More" icon="pi pi-search" class="p-button-outlined p-button-secondary w-3 ml-auto"></button>
-            </div>
+      <div class="surface-card shadow-2 p-3 border-1 surface-border border-round">
+        <div class="flex mb-3 align-items-center">
+          <div class="flex align-items-center justify-content-center bg-blue-100 border-round mr-3" style="width:2.5rem;height:2.5rem">
+            <i class="pi pi-database text-blue-500 text-xl"></i>
+          </div>
+          <div class="text-900 font-medium text-xl">InfluxDB Cold</div>
         </div>
+        <span class="text-500">Status : </span>
+        <span class="text-green-500 font-medium">UP</span>
+      </div>
+    </div>
+    <div class="col-12 lg:col-6 xl:col-3">
+      <div class="surface-card shadow-2 p-3 border-1 surface-border border-round">
+        <div class="flex mb-3 align-items-center">
+          <div class="flex align-items-center justify-content-center bg-cyan-100 border-round mr-3" style="width:2.5rem;height:2.5rem">
+            <i class="pi pi-inbox text-cyan-500 text-xl"></i>
+          </div>
+          <div class="text-900 font-medium text-xl">Kapacitor</div>
+        </div>
+        <span class="text-500">Status : </span>
+        <span class="text-green-500 font-medium">UP</span>
+      </div>
     </div>
   </div>
-</div>
+</div>-->
+<router-outlet></router-outlet>
+
 

@@ -13,6 +13,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { AvatarModule } from 'primeng/avatar';
+import { TagModule } from 'primeng/tag';
+import { ChartModule } from 'primeng/chart';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListInstancesComponent } from './components/list-instances/list-instances.component';
@@ -40,7 +42,9 @@ import { TelegrafComponent } from './components/telegraf/telegraf.component';
     InputTextModule,
     ButtonModule,
     MenuModule,
-    AvatarModule
+    AvatarModule,
+    TagModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [
