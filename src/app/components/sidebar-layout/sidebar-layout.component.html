@@ -33,7 +33,7 @@
       <i class="pi pi-angle-right text-700"></i>
     </li>
     <li class="px-2">
-      <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="dashboard/telegraf/instances" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">Instances</a>
+      <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="dashboard/telegraf/services" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">Services</a>
     </li>
   </ul>
   <div class="flex relative lg:static p-5 flex-auto">
@@ -76,9 +76,9 @@
                             <li class="border-left-2 surface-border">
                               <a pRipple
                                 class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
-                                routerLink="dashboard/telegraf/instances" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
+                                routerLink="dashboard/telegraf/services" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
                                 <i class="pi pi-copy mr-2"></i>
-                                <span class="font-medium">Instances</span>
+                                <span class="font-medium">Services</span>
                               </a>
                             </li>
                           </ul>
@@ -158,27 +158,6 @@
           </div>
       </div>
       <div class="flex flex-column flex-auto">
-        <!-- <div class="mb-3">
-          <ul class="list-none py-3 px-5 m-0 surface-section flex align-items-center font-medium overflow-x-auto surface-card shadow-2 border-round">
-            <li class="pr-3">
-              <a class="cursor-pointer" routerLink="dashboard">
-                <i class="pi pi-home text-700" routerLinkActive="text-purple-500"></i>
-              </a>
-            </li>
-            <li class="px-2">
-              <i class="pi pi-angle-right text-700"></i>
-            </li>
-            <li class="px-2">
-              <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="telegraf" routerLinkActive="text-purple-500">Telegraf</a>
-            </li>
-            <li class="px-2">
-              <i class="pi pi-angle-right text-700"></i>
-            </li>
-            <li class="px-2">
-              <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="list-instances" routerLinkActive="text-purple-500">Instances</a>
-            </li>
-          </ul>
-        </div> -->
         <router-outlet></router-outlet>
       </div>
   </div>

@@ -17,7 +17,7 @@ import { TagModule } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
-import { ListInstancesComponent } from './components/list-instances/list-instances.component';
+import { ListServicesComponent } from './components/list-services/list-services.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TelegrafComponent } from './components/telegraf/telegraf.component';
 
@@ -26,7 +26,7 @@ import { TelegrafComponent } from './components/telegraf/telegraf.component';
   declarations: [
     AppComponent,
     SidebarLayoutComponent,
-    ListInstancesComponent,
+    ListServicesComponent,
     DashboardComponent,
     TelegrafComponent,
   ],

@@ -1,42 +1,42 @@
 <div class="shadow-2 p-3 border-1 surface-border border-round surface-card">
   <div class="flex justify-content-between align-items-center mb-3">
-    <span class="text-xl text-900 font-medium">Instances details</span>
+    <span class="text-xl text-900 font-medium">Services details</span>
     <div>
         <button pButton pRipple icon="pi pi-ellipsis-v" class="p-button-text p-button-plain p-button-rounded" (click)="menu3.toggle($event)"></button>
         <p-menu #menu3 [popup]="true" [model]="items"></p-menu>
     </div>
   </div>
     <ul class="list-none p-0 m-0">
-      <div *ngFor="let instance of instances">
-        <div *ngIf="instance.state==='active'; else inactiveBlock">
+      <div *ngFor="let service of services">
+        <div *ngIf="service.state==='active'; else inactiveBlock">
           <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between px-3 py-2 border-1 surface-border border-round surface-0 mb-3">
             <div>
               <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 border-green-500">
                 <i class="pi pi-file text-green-500"></i>
               </span>
-              <span class="text-700 font-bold ml-2">{{instance.name}}.service</span>
+              <span class="text-700 font-bold ml-2">{{service.name}}.service</span>
             </div>
             <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
               <p-tag styleClass="mr-2 bg-green-500" icon="pi pi-check" [rounded]="true" severity="success" value="Active"></p-tag>
               <!--<button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>-->
-              <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text p-button-success text-green-500"></button>
-              <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-danger ml-2 text-pink-500"></button>
+              <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="restartService(service.name)"></button>
+              <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-danger ml-2 text-pink-500" (click)="stopService(service.name)"></button>
             </div>
           </li>
         </div>
         <ng-template #inactiveBlock>
-          <div *ngIf="instance.state==='inactive'; else failedBlock">
+          <div *ngIf="service.state==='inactive'; else failedBlock">
             <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between px-3 py-2 border-1 surface-border border-round surface-0 mb-3">
               <div>
                 <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 border-pink-500">
                   <i class="pi pi-file text-pink-500"></i>
                 </span>
-                <span class="text-700 font-bold ml-2">{{instance.name}}.service</span>
+                <span class="text-700 font-bold ml-2">{{service.name}}.service</span>
               </div>
               <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
                 <p-tag styleClass="mr-2 bg-pink-500" icon="pi pi-check" [rounded]="true" severity="danger" value="Inactive"></p-tag>
                 <!--<button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>-->
-                <button pButton pRipple type="button" icon="pi pi-play" class="p-button-rounded p-button-text p-button-success text-green-500"></button>
+                <button pButton pRipple type="button" icon="pi pi-play" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="startService(service.name)"></button>
               </div>
             </li>
           </div>
@@ -47,13 +47,13 @@
               <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 border-yellow-500">
                 <i class="pi pi-file text-yellow-500"></i>
               </span>
-              <span class="text-700 font-bold ml-2">{{instance.name}}.service</span>
+              <span class="text-700 font-bold ml-2">{{service.name}}.service</span>
             </div>
             <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
               <p-tag styleClass="mr-2 bg-yellow-500" icon="pi pi-exclamation-triangle" [rounded]="true" severity="warning" value="Failed"></p-tag>
               <!--<button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>-->
-              <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text p-button-success text-green-500"></button>
-              <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-danger ml-2 text-pink-500"></button>
+              <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="restartService(service.name)"></button>
+              <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-danger ml-2 text-pink-500" (click)="stopService(service.name)"></button>
             </div>
           </li>
         </ng-template>
