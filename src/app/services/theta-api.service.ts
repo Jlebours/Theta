@@ -26,4 +26,8 @@ export class ThetaAPIService {
     //return this.http.get(`http://localhost:3000/service/restart/${name}`);
     return this.http.get(`http://localhost:3000/restart/${name}`);
   }
+
+  getConfigurations(): Observable<any> {
+    return this.http.get(`http://localhost:3000/configurations`)
+  }
 }

@@ -21,7 +21,7 @@ import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layo
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TelegrafComponent } from './components/telegraf/telegraf.component';
-
+import { ListConfigurationsComponent } from './components/list-configurations/list-configurations.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +30,7 @@ import { TelegrafComponent } from './components/telegraf/telegraf.component';
     ListServicesComponent,
     DashboardComponent,
     TelegrafComponent,
+    ListConfigurationsComponent,
   ],
   imports: [
     BrowserModule,

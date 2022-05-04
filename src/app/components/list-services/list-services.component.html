@@ -35,7 +35,7 @@
                 <span class="text-700 font-bold ml-2">{{service.name}}.service</span>
               </div>
               <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
-                <p-tag styleClass="mr-2 bg-pink-500" icon="pi pi-check" [rounded]="true" severity="danger" value="Inactive"></p-tag>
+                <p-tag styleClass="mr-2 bg-pink-500" icon="pi pi-times" [rounded]="true" severity="danger" value="Inactive"></p-tag>
                 <!--<button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>-->
                 <button pButton pRipple type="button" icon="pi pi-play" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="startService(service.name)"></button>
               </div>

@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { Service } from '../../service';
+import { Service } from '../../classes';
 import { ThetaAPIService } from '../../services/theta-api.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
@@ -24,7 +24,7 @@ export class ListServicesComponent implements OnInit {
 
     this.thetaService.getServices().subscribe((data) => {
       data.forEach((e: any) => {
-        var inst = new Service(e.name, e.state)
+        var inst = new Service(e.name, e.active)
         this.services.push(inst);
       })
     })

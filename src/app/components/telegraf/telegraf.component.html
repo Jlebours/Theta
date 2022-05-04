@@ -6,37 +6,33 @@
           <div class="flex align-items-center">
             <div>
               <span class="text-xl text-900 font-medium">Services</span>
-              <!-- <span class="text-500">Actives : </span>
-              <span class="text-green-500 font-medium">6</span>
-              <span class="text-500"> | Inactives : </span>
-              <span class="text-yellow-500 font-medium">1</span>
-              <span class="text-500"> | Failed : </span>
-              <span class="text-pink-500 font-medium">1</span>-->
             </div>
           </div>
           <div class="flex">
             <button pButton pRipple label="Details" class="p-button-text p-button-sm p-button-rounded mr-1 h-2rem" icon="pi pi-folder-open" routerLink="services"></button>
           </div>
         </li>
-        <p-chart type="doughnut" [data]="data" [options]="chartOptions" [style]="{'width': '40%'}"></p-chart>
-        <li class="flex flex-column md:align-items-centern mb-2">
-          <!-- <div class="surface-border border-0 border-round p-3">
-            <span class="text-900 font-medium text-3xl">75% <span class="text-600">(6/8)</span></span>
-            <ul class="mt-3 list-none p-0 mx-0 flex">
-                <li style="height:1rem" class="flex-1 bg-green-500 border-round-left"></li>
-                <li style="height:1rem" class="flex-1 bg-green-500"></li>
-                <li style="height:1rem" class="flex-1 bg-green-500"></li>
-                <li style="height:1rem" class="flex-1 bg-green-500"></li>
-                <li style="height:1rem" class="flex-1 bg-green-500"></li>
-                <li style="height:1rem" class="flex-1 bg-green-500"></li>
-                <li style="height:1rem" class="flex-1 bg-yellow-500"></li>
-                <li style="height:1rem" class="flex-1 bg-pink-500 border-round-right"></li>
-            </ul>
-          </div> -->
+        <p-chart type="doughnut" [data]="data_services" [options]="chartOptions" [style]="{'width': '40%'}"></p-chart>
+      </ul>
+    </div>
+
+    <div class="shadow-2 border-1 surface-border border-round surface-card p-3 mt-3">
+      <ul class="list-none p-0 m-0 mt-2">
+        <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between mb-2">
+          <div class="flex align-items-center">
+            <div>
+              <span class="text-xl text-900 font-medium">Configurations</span>
+            </div>
+          </div>
+          <div class="flex">
+            <button pButton pRipple label="Details" class="p-button-text p-button-sm p-button-rounded mr-1 h-2rem" icon="pi pi-folder-open" routerLink="configurations"></button>
+          </div>
         </li>
+        <p-chart type="doughnut" [data]="data_configurations" [options]="chartOptions" [style]="{'width': '40%'}"></p-chart>
       </ul>
     </div>
   </div>
+
   <div class="col-12 lg:col-9">
     <router-outlet></router-outlet>
   </div>
