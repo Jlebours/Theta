@@ -1,1 +1,45 @@
-<p>list-configurations works!</p>
+<p-toast position="top-right"></p-toast>
+<div class="shadow-2 p-3 border-1 surface-border border-round surface-card">
+  <div class="flex justify-content-between align-items-center mb-3">
+    <span class="text-xl text-900 font-medium">Configurations details</span>
+    <div>
+        <button pButton pRipple icon="pi pi-ellipsis-v" class="p-button-text p-button-plain p-button-rounded" (click)="menu3.toggle($event)"></button>
+        <p-menu #menu3 [popup]="true" [model]="items"></p-menu>
+    </div>
+  </div>
+    <ul class="list-none p-0 m-0">
+      <div *ngFor="let conf of confs">
+        <div *ngIf="conf.service; else elseBlock">
+          <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between px-3 py-2 border-1 surface-border border-round surface-0 mb-3">
+            <div>
+              <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 border-green-500">
+                <i class="pi pi-file text-green-500"></i>
+              </span>
+              <span class="text-700 font-bold ml-2">{{conf.name}}.conf</span>
+            </div>
+            <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
+              <p-tag styleClass="mr-2 bg-green-500" icon="pi pi-check" [rounded]="true" severity="success" value="Sync"></p-tag>
+              <button pButton pRipple type="button" icon="pi pi-cog" class="p-button-rounded p-button-text"></button>
+              <!-- <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="restartService(service.name)"></button> -->
+              <!-- <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-danger ml-2 text-pink-500" (click)="stopService(service.name)"></button> -->
+            </div>
+          </li>
+        </div>
+        <ng-template #elseBlock>
+          <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between px-3 py-2 border-1 surface-border border-round surface-0 mb-3">
+            <div>
+              <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 border-yellow-500">
+                <i class="pi pi-file text-yellow-500"></i>
+              </span>
+              <span class="text-700 font-bold ml-2">{{conf.name}}.conf</span>
+            </div>
+            <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
+              <p-tag styleClass="mr-2 bg-yellow-500" icon="pi pi-times" [rounded]="true" severity="danger" value="NSync"></p-tag>
+              <button pButton pRipple type="button" icon="pi pi-cog" class="p-button-rounded p-button-text"></button>
+              <!-- <button pButton pRipple type="button" icon="pi pi-play" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="startService(service.name)"></button> -->
+            </div>
+          </li>
+        </ng-template>
+      </div>
+    </ul>
+</div>

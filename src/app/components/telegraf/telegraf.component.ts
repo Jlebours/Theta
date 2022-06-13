@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Service, Configuration } from '../../classes';
+import { Configuration } from 'src/app/models/configuration';
+import { Service } from 'src/app/models/service';
 import { ThetaAPIService } from '../../services/theta-api.service';
 
 @Component({
@@ -44,9 +45,9 @@ export class TelegrafComponent implements OnInit {
           {
             data: [this.services_actives.length, this.services_inactives.length, this.services_failed.length],
             backgroundColor: [
-                "rgb(34, 197, 94)", //
-                "rgb(236, 72, 153)", //
-                "rgb(234, 179, 8)" //
+                "rgb(34, 197, 94)", // green-500
+                "rgb(236, 72, 153)", // pink-500
+                "rgb(234, 179, 8)" // orange-500
             ],
             borderColor: [
               "rgb(7, 20, 38)", // blue of surfaces
@@ -54,9 +55,9 @@ export class TelegrafComponent implements OnInit {
               "rgb(7, 20, 38)" // blue of surfaces
             ],
             hoverBackgroundColor: [
-                "rgb(34, 197, 94)", //
-                "rgb(236, 72, 153)", //
-                "rgb(234, 179, 8)" //
+                "rgb(34, 197, 94)", // green-500
+                "rgb(236, 72, 153)", // pink-500
+                "rgb(234, 179, 8)" // orange-500
             ]
           }
         ]
@@ -91,16 +92,16 @@ export class TelegrafComponent implements OnInit {
           {
             data: [this.configurations_sync.length, this.configurations_nsync.length],
             backgroundColor: [
-              "rgb(59, 130, 246)", // blue-500
-              "rgb(255, 255, 255)", // blanc
+              "rgb(34, 197, 94)", // green-500
+              "rgb(234, 179, 8)", // orange-500
             ],
             borderColor: [
               "rgb(7, 20, 38)", // blue of surfaces
               "rgb(7, 20, 38)", // blue of surfaces
             ],
             hoverBackgroundColor: [
-              "rgb(59, 130, 246)", // blue-500
-              "rgb(255, 255, 255)", // blanc
+              "rgb(34, 197, 94)", // green-500
+              "rgb(234, 179, 8)", // orange-500
             ]
           }
         ]

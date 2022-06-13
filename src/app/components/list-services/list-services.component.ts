@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
-import { Service } from '../../classes';
 import { ThetaAPIService } from '../../services/theta-api.service';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { Service } from 'src/app/models/service';
 
 @Component({
   selector: 'app-list-services',
@@ -27,6 +27,9 @@ export class ListServicesComponent implements OnInit {
         var inst = new Service(e.name, e.active)
         this.services.push(inst);
       })
+      this.services.sort((x, y) =>
+        x.state.localeCompare(y.state)
+      );
     })
 
     this.items = [
