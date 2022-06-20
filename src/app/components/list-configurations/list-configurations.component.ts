@@ -17,9 +17,6 @@ export class ListConfigurationsComponent implements OnInit {
   constructor(private router: Router, private thetaService: ThetaAPIService, private messageService: MessageService) { }
 
   ngOnInit(): void {
-    // refresh le composant précédent
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-
     this.thetaService.getConfigurations().subscribe((data) => {
       data.forEach((e: any) => {
         var inst = new Configuration(e.name, e.service)
@@ -34,6 +31,24 @@ export class ListConfigurationsComponent implements OnInit {
       { label: 'New', icon: 'pi pi-fw pi-plus' },
       { label: 'Remove', icon: 'pi pi-fw pi-minus' }
     ]
+  }
+
+  createService(name: string): void {
+    this.thetaService.createService(name).subscribe((data) => {
+      console.log("Service created")
+      if (data[0].message == "Success") {
+        this.messageService.add({severity:'success', summary:'Success', detail:'Your service has been created'});
+      }
+    })
+  }
+
+  deleteService(name: string): void {
+    this.thetaService.deleteService(name).subscribe((data) => {
+      console.log("Service deleted")
+      if (data[0].message == "Success") {
+        this.messageService.add({severity:'success', summary:'Success', detail:'Your service has been deleted'});
+      }
+    })
   }
 
 }

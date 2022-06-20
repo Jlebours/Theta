@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { ThetaAPIService } from '../../services/theta-api.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { Service } from 'src/app/models/service';
 
@@ -16,12 +16,9 @@ export class ListServicesComponent implements OnInit {
   items: MenuItem[] = [];
   services: Service[] = [];
 
-  constructor(private router: Router, private thetaService: ThetaAPIService, private messageService: MessageService) {}
+  constructor(private router: Router, private thetaService: ThetaAPIService, private messageService: MessageService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
-    // refresh le composant précédent
-    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-
     this.thetaService.getServices().subscribe((data) => {
       data.forEach((e: any) => {
         var inst = new Service(e.name, e.active)

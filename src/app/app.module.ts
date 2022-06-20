@@ -16,12 +16,16 @@ import { AvatarModule } from 'primeng/avatar';
 import { TagModule } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
 import { ToastModule } from 'primeng/toast';
+import { BreadcrumbModule } from 'primeng/breadcrumb';
+//import { AutoCompleteModule } from 'primeng/autocomplete';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TelegrafComponent } from './components/telegraf/telegraf.component';
 import { ListConfigurationsComponent } from './components/list-configurations/list-configurations.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { EditConfigurationComponent } from './components/edit-configuration/edit-configuration.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,8 @@ import { ListConfigurationsComponent } from './components/list-configurations/li
     DashboardComponent,
     TelegrafComponent,
     ListConfigurationsComponent,
+    BreadcrumbComponent,
+    EditConfigurationComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,9 @@ import { ListConfigurationsComponent } from './components/list-configurations/li
     AvatarModule,
     TagModule,
     ChartModule,
-    ToastModule
+    ToastModule,
+    BreadcrumbModule,
+    //AutoCompleteModule
   ],
   providers: [],
   bootstrap: [

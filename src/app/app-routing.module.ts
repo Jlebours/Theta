@@ -4,24 +4,53 @@ import { ListServicesComponent } from './components/list-services/list-services.
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TelegrafComponent } from './components/telegraf/telegraf.component';
 import { ListConfigurationsComponent } from './components/list-configurations/list-configurations.component';
+import { EditConfigurationComponent } from './components/edit-configuration/edit-configuration.component';
 
 
 const routes: Routes = [
   {
-    path: "dashboard",
+    path: '',
+    data: {
+      breadcrumb: 'Dashboard',
+    },
     component: DashboardComponent,
   },
   {
     path: 'telegraf',
+    data: {
+      breadcrumb: 'Telegraf',
+    },
     component: TelegrafComponent,
     children: [
       {
         path: 'services',
+        data: {
+          breadcrumb: 'Services',
+        },
         component: ListServicesComponent,
       },
       {
         path: 'confs',
+        data: {
+          breadcrumb: 'Confs',
+        },
         component: ListConfigurationsComponent,
+        children: [
+          /* {
+            path: '',
+            data: {
+              breadcrumb: null,
+            },
+            component: ListConfigurationsComponent,
+          }, */
+          {
+            path: 'edit-conf',
+            data: {
+              breadcrumb: 'Edit',
+            },
+            component: EditConfigurationComponent
+          }
+        ]
       }
     ]
   },

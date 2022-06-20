@@ -1,0 +1,11 @@
+<ul class="list-none py-3 px-6 m-0 surface-section flex align-items-center font-medium overflow-x-auto border-top-1 border-bottom-1 surface-border">
+  <li class="pr-3">
+    <a class="cursor-pointer">
+      <i class="pi pi-home text-700" routerLink="" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }"></i>
+    </a>
+  </li>
+  <li *ngFor="let menuItem of menuItems">
+    <i class="pi pi-angle-right text-700 px-2"></i>
+    <a class="cursor-pointer text-700 white-space-nowrap no-underline px-2" routerLink="{{menuItem.url}}" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">{{menuItem.label}}</a>
+  </li>
+</ul>

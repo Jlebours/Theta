@@ -17,25 +17,7 @@
           </li>
       </ul>
   </div>
-  <ul class="list-none py-3 px-6 m-0 surface-section flex align-items-center font-medium overflow-x-auto border-top-1 border-bottom-1 surface-border">
-    <li class="pr-3">
-      <a class="cursor-pointer">
-        <i class="pi pi-home text-700" routerLink="/dashboard" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }"></i>
-      </a>
-    </li>
-    <li class="px-2">
-      <i class="pi pi-angle-right text-700"></i>
-    </li>
-    <li class="px-2">
-      <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="/telegraf" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">Telegraf</a>
-    </li>
-    <li class="px-2">
-      <i class="pi pi-angle-right text-700"></i>
-    </li>
-    <li class="px-2">
-      <a class="cursor-pointer text-700 white-space-nowrap no-underline" routerLink="/telegraf/services" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">Services</a>
-    </li>
-  </ul>
+  <app-breadcrumb></app-breadcrumb>
   <div class="flex relative lg:static p-5 flex-auto">
       <div id="app-sidebar-12" class=" border-1 surface-border surface-card hidden lg:block flex-shrink-0 absolute lg:static left-0 top-0 z-1 select-none shadow-2" style="width:280px;border-radius:12px;margin-right:35px;">
           <div class="flex flex-column h-full">
@@ -50,7 +32,7 @@
                     <li>
                       <a pRipple
                         class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
-                        routerLink="/dashboard" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
+                        routerLink="" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
                         <i class="pi pi-home mr-2"></i>
                         <span class="font-medium">Dashboard</span>
                       </a>
@@ -64,12 +46,51 @@
                       <ul class="list-none p-0 m-0 overflow-hidden">
                         <li>
                           <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                            routerLink="/telegraf" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="pi pi-sort-alt mr-2"></i>
+                            <span class="font-medium">Telegraf</span>
+                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                            routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="pi pi-database mr-2"></i>
+                            <span class="font-medium">InfluxDB Hot</span>
+                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                            routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="pi pi-database mr-2"></i>
+                            <span class="font-medium">InfluxDB Cold</span>
+                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                            routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="pi pi-inbox mr-2"></i>
+                            <span class="font-medium">Kapacitor</span>
+                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                          </a>
+                        </li>
+                      </ul>
+                      <!-- <ul class="list-none p-0 m-0 overflow-hidden">
+                        <li>
+                          <a pRipple
                             class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
                             pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
                             leaveActiveClass="slideup">
                             <i class="pi pi-sort-alt mr-2"></i>
                             <span class="font-medium">Telegraf</span>
-                            <i class="pi pi-chevron-down ml-auto"></i>
+                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                            <i class="pi pi-chevron-down"></i>
                           </a>
                           <ul
                             class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
@@ -83,67 +104,7 @@
                             </li>
                           </ul>
                         </li>
-                        <li>
-                          <a pRipple
-                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
-                            pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
-                            leaveActiveClass="slideup">
-                            <i class="pi pi-database mr-2"></i>
-                            <span class="font-medium">InfluxDB Hot</span>
-                            <i class="pi pi-chevron-down ml-auto"></i>
-                          </a>
-                          <ul
-                            class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                            <li class="border-left-2 surface-border">
-                              <a pRipple
-                                class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline">
-                                <i class="pi pi-database mr-2"></i>
-                                <span class="font-medium">Databases</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a pRipple
-                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
-                            pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
-                            leaveActiveClass="slideup">
-                            <i class="pi pi-database mr-2"></i>
-                            <span class="font-medium">InfluxDB Cold</span>
-                            <i class="pi pi-chevron-down ml-auto"></i>
-                          </a>
-                          <ul
-                            class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                            <li class="border-left-2 surface-border">
-                              <a pRipple
-                                class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline">
-                                <i class="pi pi-database mr-2"></i>
-                                <span class="font-medium">Databases</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                        <li>
-                          <a pRipple
-                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-200 transition-duration-150 transition-colors"
-                            pStyleClass="@next" enterClass="hidden" enterActiveClass="slidedown" leaveToClass="hidden"
-                            leaveActiveClass="slideup">
-                            <i class="pi pi-inbox mr-2"></i>
-                            <span class="font-medium">Kapacitor</span>
-                            <i class="pi pi-chevron-down ml-auto"></i>
-                          </a>
-                          <ul
-                            class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">
-                            <li class="border-left-2 surface-border">
-                              <a pRipple
-                                class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline">
-                                <i class="pi pi-chart-line mr-2"></i>
-                                <span class="font-medium">Processes</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
+                      </ul> -->
                     </li>
                   </ul>
               </div>
