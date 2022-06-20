@@ -111,5 +111,7 @@
       }
     }
   },
-  "defaultProject": "Theta"
+  "cli": {
+    "analytics": "1faed14d-d412-47a8-83d6-9ba7c499eed2"
+  }
 }

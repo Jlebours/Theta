@@ -17,7 +17,7 @@ import { TagModule } from 'primeng/tag';
 import { ChartModule } from 'primeng/chart';
 import { ToastModule } from 'primeng/toast';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-//import { AutoCompleteModule } from 'primeng/autocomplete';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
@@ -55,7 +55,7 @@ import { EditConfigurationComponent } from './components/edit-configuration/edit
     ChartModule,
     ToastModule,
     BreadcrumbModule,
-    //AutoCompleteModule
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [
