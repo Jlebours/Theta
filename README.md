@@ -7,6 +7,7 @@ npm install primeng --save
 npm install primeicons --save
 npm install @angular/animations --save
 npm install chart.js --save
+npm install @angular/cdk --save
 npm audit fix
 
 ### Pour obtenir une API de simulation 

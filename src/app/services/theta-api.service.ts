@@ -9,6 +9,7 @@ export class ThetaAPIService {
   constructor(private http: HttpClient) {}
 
   getServices(): Observable<any> {
+    //return this.http.get(`http://localhost:10000/services`);
     return this.http.get(`http://localhost:3000/services`);
   }
 
@@ -38,6 +39,7 @@ export class ThetaAPIService {
   }
 
   getConfigurations(): Observable<any> {
+    //return this.http.get(`http://localhost:3000/configurations`)
     return this.http.get(`http://localhost:3000/configurations`)
   }
 }

@@ -18,6 +18,7 @@ import { ChartModule } from 'primeng/chart';
 import { ToastModule } from 'primeng/toast';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { AutoCompleteModule } from 'primeng/autocomplete';
+import { FormsModule }   from '@angular/forms';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
@@ -26,6 +27,12 @@ import { TelegrafComponent } from './components/telegraf/telegraf.component';
 import { ListConfigurationsComponent } from './components/list-configurations/list-configurations.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { EditConfigurationComponent } from './components/edit-configuration/edit-configuration.component';
+import { EngineComponent } from './components/engine/engine.component';
+import { TemplateDetailsComponent } from './components/template-details/template-details.component';
+import { ListTemplatesComponent } from './components/list-templates/list-templates.component';
+import { DeviceDetailsComponent } from './components/device-details/device-details.component';
+import { DeviceResolver } from './resolvers/device.resolver';
+import { ThetaAPITmplService } from './services/theta-api-tmpl.service';
 
 @NgModule({
   declarations: [
@@ -37,6 +44,10 @@ import { EditConfigurationComponent } from './components/edit-configuration/edit
     ListConfigurationsComponent,
     BreadcrumbComponent,
     EditConfigurationComponent,
+    EngineComponent,
+    TemplateDetailsComponent,
+    ListTemplatesComponent,
+    DeviceDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,9 +66,13 @@ import { EditConfigurationComponent } from './components/edit-configuration/edit
     ChartModule,
     ToastModule,
     BreadcrumbModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    FormsModule,
   ],
-  providers: [],
+  providers: [
+    ThetaAPITmplService,
+    DeviceResolver,
+  ],
   bootstrap: [
     AppComponent
   ],

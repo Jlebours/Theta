@@ -1,5 +1,3 @@
-
-
 <div class="min-h-screen flex flex-column surface-ground">
   <div class="surface-overlay py-2 px-6 flex align-items-center justify-content-between relative lg:static">
       <a pRipple class="cursor-pointer block lg:hidden text-700" pStyleClass="#app-sidebar-12" enterClass="hidden" enterActiveClass="fadeinleft" leaveToClass="hidden" leaveActiveClass="fadeoutleft" [hideOnOutsideClick]="true">
@@ -23,10 +21,12 @@
           <div class="flex flex-column h-full">
               <div class="overflow-y-auto">
                   <div class="p-3">
-                      <div class="p-input-icon-left w-full">
-                          <i class="pi pi-search"></i>
-                          <input type="text" pInputText class="border-1 surface-border w-full" placeholder="Search" style="border-radius: 30px">
-                      </div>
+                    <!-- <span class="p-fluid">
+                      <p-autoComplete [(ngModel)]="selectedDevice" [showEmptyMessage]="true" [suggestions]="devices" (completeMethod)="filterDevices($event)"
+                      [minLength]="1" [placeholder]="'Device'" [inputStyle]="{'border-radius':'30px', 'width':'100%'}" [panelStyle]="{'border-radius':'30px'}"></p-autoComplete>
+                    </span> -->
+                    <p-autoComplete [(ngModel)]="selectedDevice" [showEmptyMessage]="true" [suggestions]="devices" (completeMethod)="filterDevices($event)"
+                    [minLength]="1" [placeholder]="'Device'" [dropdown]="true" (keyup.enter)="deviceDetails(selectedDevice)"></p-autoComplete>
                   </div>
                   <ul class="list-none px-3 pb-3 pt-0 m-0">
                     <li>
@@ -56,28 +56,37 @@
                         <li>
                           <a pRipple
                             class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                            routerLink="/engine" routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
+                            <i class="pi pi-sitemap mr-2"></i>
+                            <span class="font-medium">Engine</span>
+                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                          </a>
+                        </li>
+                        <li>
+                          <a pRipple
+                            class="flex align-items-center cursor-pointer p-3 border-round text-200 hover:surface-100 transition-duration-150 transition-colors no-underline"
                             routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
                             <i class="pi pi-database mr-2"></i>
                             <span class="font-medium">InfluxDB Hot</span>
-                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                            <!-- <span class="text-green-500 font-medium ml-auto mr-2">UP</span> -->
                           </a>
                         </li>
                         <li>
                           <a pRipple
-                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                            class="flex align-items-center cursor-pointer p-3 border-round text-200 hover:surface-100 transition-duration-150 transition-colors no-underline"
                             routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
                             <i class="pi pi-database mr-2"></i>
                             <span class="font-medium">InfluxDB Cold</span>
-                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                            <!-- <span class="text-green-500 font-medium ml-auto mr-2">UP</span> -->
                           </a>
                         </li>
                         <li>
                           <a pRipple
-                            class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors no-underline"
+                            class="flex align-items-center cursor-pointer p-3 border-round text-200 hover:surface-100 transition-duration-150 transition-colors no-underline"
                             routerLinkActive="text-purple-500" [routerLinkActiveOptions]="{ exact: true }">
                             <i class="pi pi-inbox mr-2"></i>
                             <span class="font-medium">Kapacitor</span>
-                            <span class="text-green-500 font-medium ml-auto mr-2">UP</span>
+                            <!-- <span class="text-green-500 font-medium ml-auto mr-2">UP</span> -->
                           </a>
                         </li>
                       </ul>
