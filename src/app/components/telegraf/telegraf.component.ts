@@ -77,7 +77,6 @@ export class TelegrafComponent implements OnInit {
     this.thetaService.getConfigurations().subscribe((data) => {
       data.forEach((e: any) => {
         var conf = new Configuration(e.name, e.service)
-        console.log(conf)
         this.configurations.push(conf);
         if (e.service === true) {
           this.configurations_sync.push(conf);
