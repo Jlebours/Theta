@@ -20,6 +20,8 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { FormsModule }   from '@angular/forms';
 import { TabMenuModule } from 'primeng/tabmenu';
+import { PaginatorModule } from 'primeng/paginator';
+import { TableModule } from 'primeng/table';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
@@ -69,7 +71,9 @@ import { ThetaAPITmplService } from './services/theta-api-tmpl.service';
     BreadcrumbModule,
     AutoCompleteModule,
     FormsModule,
-    TabMenuModule
+    TabMenuModule,
+    PaginatorModule,
+    TableModule
   ],
   providers: [
     ThetaAPITmplService,

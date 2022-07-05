@@ -27,7 +27,7 @@ export class TelegrafComponent implements OnInit {
   ngOnInit(): void {
     this.thetaService.getServices().subscribe((data) => {
       data.forEach((e: any) => {
-        var inst = new Service(e.name, e.active)
+        var inst = new Service(e.name, e.active, e.enabled)
         this.services.push(inst);
         if (e.active == "active") {
           this.services_actives.push(inst);

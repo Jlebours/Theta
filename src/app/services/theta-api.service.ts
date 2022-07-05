@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Service } from '../models/service';
 
 @Injectable({
   providedIn: 'root',
@@ -8,9 +9,9 @@ import { Observable } from 'rxjs';
 export class ThetaAPIService {
   constructor(private http: HttpClient) {}
 
-  getServices(): Observable<any> {
-    return this.http.get(`/api/v1/services`);
-    //return this.http.get(`http://localhost:3000/services`);
+  getServices(): Observable<Service[]> {
+    return this.http.get<Service[]>(`/api/v1/services`);
+    //return this.http.get<Service[]>(`http://localhost:3000/services`);
   }
 
   startService(name: string): Observable<any> {
@@ -26,6 +27,16 @@ export class ThetaAPIService {
   restartService(name: string): Observable<any> {
     return this.http.get(`/api/v1/services/restart/${name}`);
     //return this.http.get(`http://localhost:3000/restart/${name}`);
+  }
+
+  enableService(name: string): Observable<any> {
+    return this.http.get(`/api/v1/services/enable/${name}`);
+    //return this.http.get(`http://localhost:3000/enable/${name}`);
+  }
+
+  disableService(name: string): Observable<any> {
+    return this.http.get(`/api/v1/services/disable/${name}`);
+    //return this.http.get(`http://localhost:3000/disable/${name}`);
   }
 
   createService(name: string): Observable<any> {

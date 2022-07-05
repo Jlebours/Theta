@@ -9,7 +9,7 @@
   </div>
     <ul class="list-none p-0 m-0">
       <div *ngFor="let service of services">
-        <div *ngIf="service.state==='active'; else inactiveBlock">
+        <div *ngIf="service.active==='active'; else inactiveBlock">
           <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between px-3 py-2 border-1 surface-border border-round surface-0 mb-3">
             <div>
               <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 border-green-500">
@@ -18,7 +18,15 @@
               <span class="text-700 font-bold ml-2">{{service.name}}.service</span>
             </div>
             <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
-              <p-tag styleClass="mr-2 bg-green-500" icon="pi pi-check" [rounded]="true" severity="success" value="Active"></p-tag>
+              <div class="flex align-items-center" *ngIf="service.enabled==true; else disabledBlock">
+                <p-tag styleClass="mr-2 bg-blue-500" icon="pi pi-check" [rounded]="true" severity="success" value="Enabled"></p-tag>
+                <button pButton pRipple type="button" icon="pi pi-lock-open" class="p-button-rounded p-button-text p-button-success text-gray-500" (click)="enableService(service.name)"></button>
+              </div>
+              <ng-template #disabledBlock>
+                <p-tag styleClass="mr-2 bg-gray-500" icon="pi pi-times" [rounded]="true" severity="danger" value="Disabled"></p-tag>
+                <button pButton pRipple type="button" icon="pi pi-lock" class="p-button-rounded p-button-text p-button-success text-blue-500" (click)="enableService(service.name)"></button>
+              </ng-template>
+              <p-tag styleClass="ml-6 mr-2 bg-green-500" icon="pi pi-check" [rounded]="true" severity="success" value="Active"></p-tag>
               <!--<button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>-->
               <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="restartService(service.name)"></button>
               <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-danger ml-2 text-pink-500" (click)="stopService(service.name)"></button>
@@ -26,7 +34,7 @@
           </li>
         </div>
         <ng-template #inactiveBlock>
-          <div *ngIf="service.state==='inactive'; else failedBlock">
+          <div *ngIf="service.active==='inactive'; else failedBlock">
             <li class="flex flex-column md:flex-row md:align-items-center md:justify-content-between px-3 py-2 border-1 surface-border border-round surface-0 mb-3">
               <div>
                 <span class="inline-flex justify-content-center align-items-center w-2rem h-2rem border-circle border-1 border-pink-500">
@@ -35,7 +43,15 @@
                 <span class="text-700 font-bold ml-2">{{service.name}}.service</span>
               </div>
               <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
-                <p-tag styleClass="mr-2 bg-pink-500" icon="pi pi-times" [rounded]="true" severity="danger" value="Inactive"></p-tag>
+                <div class="flex align-items-center" *ngIf="service.enabled==true; else disabledBlock">
+                  <p-tag styleClass="mr-2 bg-blue-500" icon="pi pi-check" [rounded]="true" severity="success" value="Enabled"></p-tag>
+                  <button pButton pRipple type="button" icon="pi pi-lock-open" class="p-button-rounded p-button-text p-button-success text-gray-500" (click)="enableService(service.name)"></button>
+                </div>
+                <ng-template #disabledBlock>
+                  <p-tag styleClass="mr-2 bg-gray-500" icon="pi pi-times" [rounded]="true" severity="danger" value="Disabled"></p-tag>
+                  <button pButton pRipple type="button" icon="pi pi-lock" class="p-button-rounded p-button-text p-button-success text-blue-500" (click)="enableService(service.name)"></button>
+                </ng-template>
+                <p-tag styleClass="ml-6 mr-2 bg-pink-500" icon="pi pi-times" [rounded]="true" severity="danger" value="Inactive"></p-tag>
                 <!--<button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>-->
                 <button pButton pRipple type="button" icon="pi pi-play" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="startService(service.name)"></button>
               </div>
@@ -51,7 +67,15 @@
               <span class="text-700 font-bold ml-2">{{service.name}}.service</span>
             </div>
             <div class="flex align-items-center justify-content-end md:justify-content-end mt-3 md:mt-0">
-              <p-tag styleClass="mr-2 bg-yellow-500" icon="pi pi-exclamation-triangle" [rounded]="true" severity="warning" value="Failed"></p-tag>
+              <div class="flex align-items-center" *ngIf="service.enabled==true; else disabledBlock">
+                <p-tag styleClass="mr-2 bg-blue-500" icon="pi pi-check" [rounded]="true" severity="success" value="Enabled"></p-tag>
+                <button pButton pRipple type="button" icon="pi pi-lock-open" class="p-button-rounded p-button-text p-button-success text-gray-500" (click)="enableService(service.name)"></button>
+              </div>
+              <ng-template #disabledBlock>
+                <p-tag styleClass="mr-2 bg-gray-500" icon="pi pi-times" [rounded]="true" severity="danger" value="Disabled"></p-tag>
+                <button pButton pRipple type="button" icon="pi pi-lock" class="p-button-rounded p-button-text p-button-success text-blue-500" (click)="enableService(service.name)"></button>
+              </ng-template>
+              <p-tag styleClass="ml-6 mr-2 bg-yellow-500" icon="pi pi-exclamation-triangle" [rounded]="true" severity="warning" value="Failed"></p-tag>
               <!--<button pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-text"></button>-->
               <button pButton pRipple type="button" icon="pi pi-refresh" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="restartService(service.name)"></button>
               <button pButton pRipple type="button" icon="pi pi-power-off" class="p-button-rounded p-button-text p-button-danger ml-2 text-pink-500" (click)="stopService(service.name)"></button>
@@ -61,3 +85,21 @@
       </div>
     </ul>
 </div>
+
+<!-- <p-table [value]="services" [lazy]="true" (onLazyLoad)="loadServices($event)" [paginator]="true" [rows]="10"
+  [totalRecords]="totalRecords" [loading]="loading">
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
+            <th>Active</th>
+            <th>Enabled</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-service>
+        <tr>
+            <td>{{service.name}}</td>
+            <td>{{service.active}}</td>
+            <td>{{service.enabled}}</td>
+        </tr>
+    </ng-template>
+</p-table> -->
