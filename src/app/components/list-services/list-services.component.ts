@@ -13,23 +13,23 @@ import { Service } from 'src/app/models/service';
 
 export class ListServicesComponent implements OnInit {
   items: MenuItem[] = [];
-  //datasource: Service[] = [];
+  datasource: Service[] = [];
   services: Service[] = [];
 
-  /* totalRecords!: number;
+  totalRecords!: number;
 
   cols: any[] = [];
 
-  loading = false; */
+  loading = false;
 
   constructor(private thetaService: ThetaAPIService, private messageService: MessageService) {}
 
   ngOnInit() {
-    /* this.thetaService.getServices().subscribe((data) => {
+    this.thetaService.getServices().subscribe((data) => {
       this.datasource = data
       this.totalRecords = this.datasource.length;
-    }) */
-    /* this.loading = true; */
+    })
+    this.loading = true;
 
     this.thetaService.getServices().subscribe((data) => {
       this.services = data
@@ -44,7 +44,7 @@ export class ListServicesComponent implements OnInit {
     ]
   }
 
-  /* loadServices(event: LazyLoadEvent) {
+  loadServices(event: LazyLoadEvent) {
     this.loading = true;
 
     //in a real application, make a remote request to load data using state metadata from event
@@ -62,7 +62,7 @@ export class ListServicesComponent implements OnInit {
         }
     }, 500);
     console.log(this.services)
-  } */
+  }
 
   startService(name: string): void {
     this.thetaService.startService(name).subscribe((data) => {
