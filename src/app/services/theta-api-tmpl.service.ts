@@ -18,4 +18,5 @@ export class ThetaAPITmplService {
     return this.http.get(`/api/v2/devices/${device}`);
     //return this.http.get(`http://localhost:3000/AMIR1`);
   }
+
 }

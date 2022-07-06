@@ -53,4 +53,5 @@ export class ThetaAPIService {
     return this.http.get(`/api/v1/confs`)
     //return this.http.get(`http://localhost:3000/configurations`)
   }
+
 }
