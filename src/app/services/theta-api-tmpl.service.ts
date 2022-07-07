@@ -10,13 +10,18 @@ export class ThetaAPITmplService {
   constructor(private http: HttpClient) { }
 
   getDevices(): Observable<any> {
-    return this.http.get(`/api/v2/devices`);
-    //return this.http.get(`http://localhost:3000/devices`);
+    //return this.http.get(`/api/v2/devices`);
+    return this.http.get(`http://localhost:3000/devices`);
   }
 
   getInfosDevice(device: string): Observable<any> {
-    return this.http.get(`/api/v2/devices/${device}`);
-    //return this.http.get(`http://localhost:3000/AMIR1`);
+    //return this.http.get(`/api/v2/devices/${device}`);
+    return this.http.get(`http://localhost:3000/AMIR1`);
+  }
+
+  getTemplates(vendor: string, platform: string, fct: string): Observable<any> {
+    //return this.http.get(`/api/v2/templates/${vendor}/${platform}/${fct}`);
+    return this.http.get(`http://localhost:3000/AMIR1/Test/Test`);
   }
 
 }

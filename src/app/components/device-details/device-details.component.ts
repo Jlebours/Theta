@@ -24,4 +24,10 @@ export class DeviceDetailsComponent implements OnInit {
       this.device = data['device']
     })
   }
+
+  getTemplates(vendor: string, platform: string, fct: string) {
+    this.thetaTmplService.getTemplates(vendor, platform, fct).subscribe((data) => {
+      console.log(data)
+    })
+  }
 }

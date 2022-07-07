@@ -25,6 +25,9 @@
                       <p-tag styleClass="mr-2" value="{{device.os}}" [rounded]="true"></p-tag>
                       </div>
                   </div>
+                  <div>
+                    <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text p-button-success text-blue-500" (click)="getTemplates(device.vendor,'','')"></button>
+                  </div>
               </div>
           </div>
       </div>
