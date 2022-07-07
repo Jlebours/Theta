@@ -2,31 +2,30 @@
   <div class="text-3xl font-medium text-900 mb-4">{{device.name}}</div>
   <p-tabMenu [model]="items" [activeItem]="items[0]"></p-tabMenu>
 </div>
-<div class="surface-section px-3 py-5">
+<div class="surface-section px-3 py-4">
   <div class="flex align-items-start flex-column lg:flex-row lg:justify-content-between">
-      <div class="flex align-items-start flex-column md:flex-row">
+      <div class="flex align-items-start  flex-column md:flex-row">
           <div>
-              <div class="flex align-items-center flex-wrap text-sm">
-                  <div class="mr-5">
-                      <span class="font-medium text-500">VENDOR</span>
-                      <div class="text-700 mt-2">{{device.vendor}}</div>
+              <div class="flex flex-wrap text-sm">
+                  <div class="mr-5 justify-content-center">
+                      <span class="font-medium text-500">VENDOR : </span>
+                      <p-button label="{{device.vendor}}" icon="pi pi-filter" styleClass="p-button-sm p-button-plain p-button-text text-700 mt-1 flex" (click)="getTemplates(device.vendor,'','')"></p-button>
                   </div>
                   <div class="mr-5">
-                      <span class="font-medium text-500">PLATFORM</span>
-                      <div class="text-700 mt-2">{{device.platform}}</div>
+                      <span class="font-medium text-500">PLATFORM : </span>
+                      <p-button label="{{device.platform}}" icon="pi pi-filter" styleClass="p-button-sm p-button-plain p-button-text text-700 flex mt-1" (click)="getTemplates('',device.platform,'')"></p-button>
                   </div>
                   <div class="mr-5">
-                      <span class="font-medium text-500">TYPE</span>
-                      <div class="text-700 mt-2">{{device.type}}</div>
+                      <span class="font-medium text-500">FUNCTION : </span>
+                      <p-button label="{{device.type}}" icon="pi pi-filter" styleClass="p-button-sm p-button-plain p-button-text text-700 flex mt-1" (click)="getTemplates('','',device.type)"></p-button>
                   </div>
                   <div>
-                      <span class="font-medium text-500">OS</span>
-                      <div class="text-700">
-                      <p-tag styleClass="mr-2" value="{{device.os}}" [rounded]="true"></p-tag>
+                      <span class="font-medium text-500">OS : </span>
+                      <div class="text-700 mt-2">
+                        <p-tag value="{{device.os}}" [rounded]="true"></p-tag>
                       </div>
                   </div>
                   <div>
-                    <button pButton pRipple type="button" icon="pi pi-search" class="p-button-rounded p-button-text p-button-success text-blue-500" (click)="getTemplates(device.vendor,'','')"></button>
                   </div>
               </div>
           </div>
