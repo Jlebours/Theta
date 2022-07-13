@@ -1,3 +1,90 @@
+<div class="surface-card p-4 shadow-2 border-round">
+  <div class="font-medium text-2xl text-900 mb-3">Recherche avancée</div>
+  <div class="flex">
+    <div class="pr-3">
+      <p-autoComplete [(ngModel)]="selectedVendor" [showEmptyMessage]="true" [suggestions]="vendors" (completeMethod)="filterVendors($event)"
+      [minLength]="1" [placeholder]="'Vendor'" [dropdown]="true"></p-autoComplete>
+    </div>
+    <div class="pr-3">
+      <p-autoComplete [(ngModel)]="selectedPlatform" [showEmptyMessage]="true" [suggestions]="platforms" (completeMethod)="filterPlatforms($event)"
+      [minLength]="1" [placeholder]="'Platform'" [dropdown]="true"></p-autoComplete>
+    </div>
+    <div class="pr-3">
+      <p-autoComplete [(ngModel)]="selectedFunction" [showEmptyMessage]="true" [suggestions]="functions" (completeMethod)="filterFunctions($event)"
+      [minLength]="1" [placeholder]="'Function'" [dropdown]="true"></p-autoComplete>
+    </div>
+    <button pButton pRipple type="button" icon="pi pi-search" label="Search" class="p-button-rounded p-button-text" (click)="getTemplates()"></button>
+
+  </div>
+</div>
+
+<div *ngIf="search == true" class="surface-card mt-4 p-4 shadow-2 border-round">
+  <div class="font-medium text-2xl text-900 mb-3">Templates</div>
+  <p-table [value]="templates" dataKey="name" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width: 5rem"></th>
+            <!-- <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th> -->
+            <th>Name</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-template let-expanded="expanded">
+        <tr>
+            <td>
+                <button type="button" pButton pRipple [pRowToggler]="template" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+            </td>
+            <td>{{template.name}}</td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="rowexpansion" let-template>
+        <tr>
+            <td colspan="12" class="m-0 p-0">
+                <div *ngFor="let confDirectory of template.confdirectories; let i = index">
+                  <li *ngIf="i%2 === 0; else elseBlock" class="flex align-items-center py-3 px-2 flex-wrap surface-50">
+                    <div class="text-500 w-full md:w-2 font-medium">{{confDirectory.name}}</div>
+                    <div class="text-900 w-full md:w-10">
+                      <div class="grid flex mt-0 mr-0">
+                        <div *ngFor="let file of confDirectory.files" class="col-12 md:col-6">
+                          <div class="px-3 py-1 border-1 border-300 border-round surface-0 flex justify-content-between align-items-center">
+                            <div class="text-900">
+                              <i class="pi pi-file mr-2"></i>
+                              <span class="font-medium">{{file}}.conf</span>
+                            </div>
+                            <div>
+                              <button pButton pRipple type="button" icon="pi pi-eye" class="p-button-rounded p-button-text m-0 p-0"></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <ng-template #elseBlock>
+                    <li class="flex align-items-center py-3 px-2 flex-wrap">
+                      <div class="text-500 w-full md:w-2 font-medium">{{confDirectory.name}}</div>
+                      <div class="text-900 w-full md:w-10">
+                          <div class="grid flex mt-0 mr-0">
+                              <div *ngFor="let file of confDirectory.files" class="col-12 md:col-6">
+                                  <div class="px-3 py-1 border-1 border-300 border-round surface-0 flex justify-content-between align-items-center">
+                                      <div class="text-900">
+                                          <i class="pi pi-file mr-2"></i>
+                                          <span class="font-medium">{{file}}.conf</span>
+                                      </div>
+                                      <div>
+                                        <button pButton pRipple type="button" icon="pi pi-eye" class="p-button-rounded p-button-text m-0 p-0"></button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </li>
+                  </ng-template>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+  </p-table>
+</div>
+
 <!-- <div class="surface-section pb-5 md:px-6 lg:px-8">
     <div class="text-3xl font-medium text-900 flex align-items-center">Virtual Machines</div>
 </div>
@@ -120,6 +207,7 @@
     </div>
   </div>
 </div> -->
+
 <router-outlet></router-outlet>
 
 
