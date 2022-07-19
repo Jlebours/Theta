@@ -37,6 +37,7 @@ import { ListTemplatesComponent } from './components/list-templates/list-templat
 import { DeviceDetailsComponent } from './components/device-details/device-details.component';
 import { DeviceResolver } from './resolvers/device.resolver';
 import { ThetaAPITmplService } from './services/theta-api-tmpl.service';
+import { ContainsTemplateAndDirPipe } from './pipes/containsTemplateAndDir.pipe';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,8 @@ import { ThetaAPITmplService } from './services/theta-api-tmpl.service';
     TemplateDetailsComponent,
     ListTemplatesComponent,
     DeviceDetailsComponent,
+    ContainsTemplateAndDirPipe
+
   ],
   imports: [
     BrowserModule,

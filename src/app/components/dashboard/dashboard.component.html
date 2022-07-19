@@ -52,7 +52,7 @@
                     </div>
                     <div class="text-900 w-full md:w-10">
                       <div class="grid flex mt-0 mr-0">
-                        <p-multiSelect *ngIf="areTempAndDirPresent(template.name, confDirectory.name) == true" [options]="confs" [(ngModel)]="selectedConfs" defaultLabel="Select telegraf conf"
+                        <p-multiSelect *ngIf="areTempAndDirPresent(template.name, confDirectory.name) == true" [options]="confs | containsTemplateAndDir:template.name:confDirectory.name" [(ngModel)]="selectedConfs" defaultLabel="Select telegraf conf"
                           optionLabel="name" display="chip" class="col-12 md:col-6" styleClass="py-1" [style]="{'width': '100%'}" [selectionLimit]="1"></p-multiSelect>
                         <div *ngIf="areTempAndDirPresent(template.name, confDirectory.name) == true" class="px-3 py-1 flex justify-content-between align-items-center">
                           <button pButton pRipple type="button" icon="pi pi-save" label="Save" class="p-button-rounded p-button-text p-button-success text-green-500" (click)="addConf(template.name, confDirectory.name, selectedConfs)"></button>
@@ -61,7 +61,7 @@
                           <div class="px-3 py-1 border-1 border-300 border-round surface-0 flex justify-content-between align-items-center">
                             <div class="text-900">
                               <i class="pi pi-file mr-2"></i>
-                              <span class="font-medium">{{file}}.conf</span>
+                              <span class="font-medium">{{file}}</span>
                             </div>
                             <div>
                               <!-- <button pButton pRipple type="button" icon="pi pi-eye" class="p-button-rounded p-button-text m-0 p-0"></button> -->
@@ -90,7 +90,7 @@
                                   <div class="px-3 py-1 border-1 border-300 border-round surface-0 flex justify-content-between align-items-center">
                                       <div class="text-900">
                                           <i class="pi pi-file mr-2"></i>
-                                          <span class="font-medium">{{file}}.conf</span>
+                                          <span class="font-medium">{{file}}</span>
                                       </div>
                                       <div>
                                         <button pButton pRipple type="button" icon="pi pi-eye" class="p-button-rounded p-button-text m-0 p-0"></button>

@@ -98,15 +98,13 @@ export class DashboardComponent implements OnInit {
         for (const confDirectory of confDirectories) {
           if (confDirectory.name == dir) {
             for (const conf of confDirectory.files) {
-              this.confs.push({template: template, dir: dir, name: conf})
+              this.confs.push({template: template, dir: dir, name: conf.replace('.conf', '')})
             }
           }
         }
       })
     } else {
-      this.confs.forEach( (conf, index) => {
-        if(conf.template === template && conf.dir === dir) this.confs.splice(index);
-      });
+      this.confs.filter(conf => conf.template === template && conf.dir === dir).forEach(conf => this.confs.splice(this.confs.indexOf(conf), 1));
     }
   }
 
