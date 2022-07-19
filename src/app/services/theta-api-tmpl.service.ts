@@ -10,13 +10,13 @@ export class ThetaAPITmplService {
   constructor(private http: HttpClient) { }
 
   getDevices(): Observable<any> {
-    //return this.http.get(`/api/v2/devices`);
-    return this.http.get(`http://localhost:3000/devices`);
+    return this.http.get(`/api/v2/devices`);
+    //return this.http.get(`http://localhost:3000/devices`);
   }
 
   getInfosDevice(device: string): Observable<any> {
-    //return this.http.get(`/api/v2/devices/${device}`);
-    return this.http.get(`http://localhost:3000/AMIR1`);
+    return this.http.get(`/api/v2/devices/${device}`);
+    //return this.http.get(`http://localhost:3000/AMIR1`);
   }
 
   getTemplates(vendor: string, platform: string, fct: string): Observable<any> {
@@ -40,33 +40,33 @@ export class ThetaAPITmplService {
     if (fct != undefined) {
       Qfunction = `?function=${fct}`
     }
-    //return this.http.get(`/api/v2/templates/v2${Qvendor}${QandPlatform}${Qplatform}${QandFunction}${Qfunction}`);
-    return this.http.get(`http://localhost:3000/template`);
+    return this.http.get(`/api/v2/templates/v2${Qvendor}${QandPlatform}${Qplatform}${QandFunction}${Qfunction}`);
+    //return this.http.get(`http://localhost:3000/template`);
   }
 
   getVendors(): Observable<string[]> {
-    //return this.http.get<string[]>(`/api/v2/pulsar/vendors`);
-    return this.http.get<string[]>(`http://localhost:3000/vendors`)
+    return this.http.get<string[]>(`/api/v2/pulsar/vendors`);
+    //return this.http.get<string[]>(`http://localhost:3000/vendors`)
   }
 
   getPlatforms(): Observable<string[]> {
-    //return this.http.get<string[]>(`/api/v2/pulsar/platforms`);
-    return this.http.get<string[]>(`http://localhost:3000/platforms`)
+    return this.http.get<string[]>(`/api/v2/pulsar/platforms`);
+    //return this.http.get<string[]>(`http://localhost:3000/platforms`)
   }
 
   getFunctions(): Observable<string[]> {
-    //return this.http.get<string[]>(`/api/v2/pulsar/functions`);
-    return this.http.get<string[]>(`http://localhost:3000/functions`)
+    return this.http.get<string[]>(`/api/v2/pulsar/functions`);
+    //return this.http.get<string[]>(`http://localhost:3000/functions`)
   }
 
   getTemplate(vendor: string, platform: string, fct: string): Observable<any> {
-    //return this.http.get(`/api/v2/templates/${vendor}/${platform}/${fct}`);
-    return this.http.get(`http://localhost:3000/template`);
+    return this.http.get(`/api/v2/templates/${vendor}/${platform}/${fct}`);
+    //return this.http.get(`http://localhost:3000/template`);
   }
 
   removeConf(template: string, dir: string, conf: string): Observable<any> {
-    //return this.http.get(`/api/v2/templates/${template}/remove_conf?dir=${dir}&?conf=${conf}`);
-    return this.http.get(``);
+    return this.http.get(`/api/v2/templates/${template}/remove_conf?dir=${dir}&?conf=${conf}`);
+    //return this.http.get(``);
   }
 
   addConf(template: string, dir: string, conf: string): Observable<any> {
@@ -75,8 +75,8 @@ export class ThetaAPITmplService {
   }
 
   getConfs(): Observable<any> {
-    //return this.http.get(`/api/v2/confs/v2`);
-    return this.http.get(`http://localhost:3000/confs`);
+    return this.http.get(`/api/v2/confs/v2`);
+    //return this.http.get(`http://localhost:3000/confs`);
   }
 
 }
