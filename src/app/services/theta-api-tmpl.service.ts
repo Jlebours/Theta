@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -41,7 +41,7 @@ export class ThetaAPITmplService {
       Qfunction = `?function=${fct}`
     }
     return this.http.get(`/api/v2/templates/v2${Qvendor}${QandPlatform}${Qplatform}${QandFunction}${Qfunction}`);
-    //return this.http.get(`http://localhost:3000/AMIR1/Test/Test`);
+    //return this.http.get(`http://localhost:3000/template`);
   }
 
   getVendors(): Observable<string[]> {
@@ -62,6 +62,21 @@ export class ThetaAPITmplService {
   getTemplate(vendor: string, platform: string, fct: string): Observable<any> {
     return this.http.get(`/api/v2/templates/${vendor}/${platform}/${fct}`);
     //return this.http.get(`http://localhost:3000/template`);
+  }
+
+  removeConf(template: string, dir: string, conf: string): Observable<any> {
+    return this.http.get(`/api/v2/templates/${template}/remove_conf?dir=${dir}&?conf=${conf}`);
+    //return this.http.get(``);
+  }
+
+  addConf(template: string, dir: string, conf: string): Observable<any> {
+    return this.http.get(`/api/v2/templates/${template}/add_conf?dir=${dir}&?conf=${conf}`);
+    //return this.http.get(``);
+  }
+
+  getConfs(): Observable<any> {
+    return this.http.get(`/api/v2/confs/v2`);
+    //return this.http.get(`http://localhost:3000/confs`);
   }
 
 }

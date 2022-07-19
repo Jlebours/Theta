@@ -20,6 +20,11 @@ export class DashboardComponent implements OnInit {
   templates: Template[] = [];
   search = false
 
+
+  confs: any[] = [];
+  selectedConfs: any[] = [];
+  templateAndDirFocused: string[][]= [];
+
   constructor(private thetaTmplService: ThetaAPITmplService, private router: Router) {}
 
   ngOnInit(): void {}
@@ -71,6 +76,46 @@ export class DashboardComponent implements OnInit {
       this.templates = templates
       this.search = true
     })
+  }
+
+  removeConf(template: string, dir: string, conf: string): void {
+    this.thetaTmplService.removeConf(template, dir, conf).subscribe((response: any) => {
+      console.log(response)
+    })
+  }
+
+  addConf(template: string, dir: string, conf: string[]): void {
+    console.log(this.selectedConfs)
+    // on ne traite pas encore les valeurs multiples pour l'ajout
+    this.thetaTmplService.addConf(template, dir, this.selectedConfs[0].name).subscribe((response: any) => {
+      console.log(response)
+    })
+  }
+
+  switchAdding(template: string, dir: string) {
+    if (!this.confs.some(conf => conf.template === template && conf.dir === dir)) {
+      this.thetaTmplService.getConfs().subscribe((confDirectories: any) =>{
+        for (const confDirectory of confDirectories) {
+          if (confDirectory.name == dir) {
+            for (const conf of confDirectory.files) {
+              this.confs.push({template: template, dir: dir, name: conf})
+            }
+          }
+        }
+      })
+    } else {
+      this.confs.forEach( (conf, index) => {
+        if(conf.template === template && conf.dir === dir) this.confs.splice(index);
+      });
+    }
+  }
+
+  areTempAndDirPresent(template: string, dir: string) {
+    var found = false;
+    if (this.confs.some(conf => conf.template === template && conf.dir === dir)) {
+      found = true;
+    }
+    return found
   }
 
 }

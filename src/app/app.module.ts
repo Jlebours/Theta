@@ -22,6 +22,7 @@ import { FormsModule }   from '@angular/forms';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { PaginatorModule } from 'primeng/paginator';
 import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 import { SidebarLayoutComponent } from './components/sidebar-layout/sidebar-layout.component';
 import { ListServicesComponent } from './components/list-services/list-services.component';
@@ -73,7 +74,8 @@ import { ThetaAPITmplService } from './services/theta-api-tmpl.service';
     FormsModule,
     TabMenuModule,
     PaginatorModule,
-    TableModule
+    TableModule,
+    MultiSelectModule
   ],
   providers: [
     ThetaAPITmplService,
